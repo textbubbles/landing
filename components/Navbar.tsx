@@ -56,7 +56,7 @@ export default function Navbar() {
             Docs
           </a>
           <a
-            href="https://api.textbubbles.com"
+            href="https://docs.textbubbles.com/api"
             className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             API

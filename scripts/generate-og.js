@@ -97,7 +97,7 @@ ctx.textAlign = 'center';
 ctx.fillText('iMessage API for Developers', WIDTH / 2, 395);
 
 // --- CTA Button ---
-const ctaText = 'Get Started Free →';
+const ctaText = 'Get Started →';
 ctx.font = 'bold 26px Helvetica, Arial, sans-serif';
 const ctaMetrics = ctx.measureText(ctaText);
 const ctaPadH = 36;

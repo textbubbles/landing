@@ -96,6 +96,38 @@ ctx.fillStyle = '#8e8e93';
 ctx.textAlign = 'center';
 ctx.fillText('iMessage API for Developers', WIDTH / 2, 395);
 
+// --- CTA Button ---
+const ctaText = 'Get Started Free →';
+ctx.font = 'bold 26px Helvetica, Arial, sans-serif';
+const ctaMetrics = ctx.measureText(ctaText);
+const ctaPadH = 36;
+const ctaPadV = 16;
+const ctaW = ctaMetrics.width + ctaPadH * 2;
+const ctaH = 54;
+const ctaX = (WIDTH - ctaW) / 2;
+const ctaY = 440;
+const ctaR = ctaH / 2;
+
+// Draw pill-shaped button
+ctx.beginPath();
+ctx.moveTo(ctaX + ctaR, ctaY);
+ctx.lineTo(ctaX + ctaW - ctaR, ctaY);
+ctx.quadraticCurveTo(ctaX + ctaW, ctaY, ctaX + ctaW, ctaY + ctaR);
+ctx.quadraticCurveTo(ctaX + ctaW, ctaY + ctaH, ctaX + ctaW - ctaR, ctaY + ctaH);
+ctx.lineTo(ctaX + ctaR, ctaY + ctaH);
+ctx.quadraticCurveTo(ctaX, ctaY + ctaH, ctaX, ctaY + ctaR);
+ctx.quadraticCurveTo(ctaX, ctaY, ctaX + ctaR, ctaY);
+ctx.closePath();
+ctx.fillStyle = '#007AFF';
+ctx.fill();
+
+// CTA text
+ctx.fillStyle = '#ffffff';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.font = 'bold 26px Helvetica, Arial, sans-serif';
+ctx.fillText(ctaText, WIDTH / 2, ctaY + ctaH / 2);
+
 // --- Domain ---
 ctx.font = '18px Helvetica, Arial, sans-serif';
 ctx.fillStyle = '#3a3a3a';

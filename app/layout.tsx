@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TextBubbles - iMessage API for Developers",
+  title: "TextBubbles - The iMessage & SMS API Built for Developers",
   description:
-    "Send blue bubbles, reactions, and rich media via a simple REST API. The iMessage API built for developers.",
+    "Send blue bubble iMessages, reactions, and rich media via a simple REST API. Automatic SMS fallback for Android. Built for developers who ship.",
   keywords: ["iMessage API", "SMS API", "messaging", "developer tools"],
   metadataBase: new URL("https://textbubbles.com"),
   openGraph: {
-    title: "TextBubbles - iMessage API for Developers",
-    description: "Send blue bubbles, reactions, and rich media via a simple REST API. The iMessage API built for developers.",
+    title: "TextBubbles - The iMessage & SMS API Built for Developers",
+    description: "Send blue bubble iMessages, reactions, and rich media via a simple REST API. Automatic SMS fallback for Android. Built for developers who ship.",
     url: "https://textbubbles.com",
     siteName: "TextBubbles",
     images: [
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TextBubbles - iMessage API for Developers",
-    description: "Send blue bubbles, reactions, and rich media via a simple REST API.",
+    title: "TextBubbles - The iMessage & SMS API Built for Developers",
+    description: "Send blue bubble iMessages, reactions, and rich media via a simple REST API. Automatic SMS fallback for Android.",
     images: ["/og-image.png"],
   },
   icons: {

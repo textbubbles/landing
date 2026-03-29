@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --imessage-blue: #007AFF;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f7;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+}
+
+.dark {
+  --bg-primary: #000000;
+  --bg-secondary: #111113;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Chat bubble styles */
+.bubble-blue {
+  background: var(--imessage-blue);
+  color: white;
+  border-radius: 18px 18px 4px 18px;
+}
+
+.bubble-gray {
+  background: #e9e9eb;
+  color: #1d1d1f;
+  border-radius: 18px 18px 18px 4px;
+}
+
+.dark .bubble-gray {
+  background: #2c2c2e;
+  color: #f5f5f7;
+}
+
+/* Code block styling */
+.code-block {
+  background: #1a1a2e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.code-block pre {
+  padding: 1.5rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Syntax highlighting colors */
+.token-keyword { color: #c678dd; }
+.token-string { color: #98c379; }
+.token-comment { color: #5c6370; }
+.token-function { color: #61afef; }
+.token-property { color: #e06c75; }
+.token-number { color: #d19a66; }
+.token-punctuation { color: #abb2bf; }
+.token-type { color: #e5c07b; }
+.token-variable { color: #e06c75; }
+.token-plain { color: #abb2bf; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 50%, #AF52DE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect */
+.glow-blue {
+  box-shadow: 0 0 60px rgba(0, 122, 255, 0.15);
+}
+
+.dark .glow-blue {
+  box-shadow: 0 0 60px rgba(0, 122, 255, 0.25);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 3px;
+}

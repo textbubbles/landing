@@ -104,7 +104,7 @@ export default function Hero() {
             <div className="glow-blue rounded-3xl bg-white dark:bg-[#1c1c1e] border border-gray-200 dark:border-white/10 p-6 shadow-2xl">
               {/* Phone header */}
               <div className="flex items-center gap-3 pb-4 mb-4 border-b border-gray-100 dark:border-white/10">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-imessage-blue to-purple-500 flex items-center justify-center text-white text-sm font-semibold">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-imessage-blue to-blue-700 flex items-center justify-center text-white text-sm font-semibold">
                   TB
                 </div>
                 <div>

@@ -2,31 +2,46 @@ const { createCanvas } = require('canvas');
 const fs = require('fs');
 const path = require('path');
 
-// Dimensions for OG image
 const WIDTH = 1200;
 const HEIGHT = 630;
 
 const canvas = createCanvas(WIDTH, HEIGHT);
 const ctx = canvas.getContext('2d');
 
-// Background - dark like the site
-ctx.fillStyle = '#000000';
+// === Background ===
+ctx.fillStyle = '#0a0a0a';
 ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-// Subtle blue radial glow
-const glow = ctx.createRadialGradient(WIDTH/2, HEIGHT/2 - 30, 0, WIDTH/2, HEIGHT/2 - 30, 350);
-glow.addColorStop(0, 'rgba(0, 122, 255, 0.12)');
+// Subtle gradient glow
+const glow = ctx.createRadialGradient(WIDTH / 2, HEIGHT / 2, 0, WIDTH / 2, HEIGHT / 2, 450);
+glow.addColorStop(0, 'rgba(0, 122, 255, 0.08)');
+glow.addColorStop(0.5, 'rgba(0, 122, 255, 0.02)');
 glow.addColorStop(1, 'rgba(0, 122, 255, 0)');
 ctx.fillStyle = glow;
 ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-// Logo - blue rounded square with chat bubble
-const logoSize = 80;
-const logoX = (WIDTH - logoSize) / 2;
-const logoY = 130;
-const logoRadius = 18;
+// Top accent line
+const borderGrad = ctx.createLinearGradient(0, 0, WIDTH, 0);
+borderGrad.addColorStop(0, 'rgba(0, 122, 255, 0)');
+borderGrad.addColorStop(0.3, 'rgba(0, 122, 255, 0.3)');
+borderGrad.addColorStop(0.5, 'rgba(0, 122, 255, 0.5)');
+borderGrad.addColorStop(0.7, 'rgba(0, 122, 255, 0.3)');
+borderGrad.addColorStop(1, 'rgba(0, 122, 255, 0)');
+ctx.fillStyle = borderGrad;
+ctx.fillRect(0, 0, WIDTH, 2);
 
-// Draw rounded rectangle for logo background
+// === Stacked layout: Logo on top, Title below, Tagline below that ===
+// This gives each element room to breathe and be large
+
+// --- Logo: Blue rounded square with chat bubble ---
+const logoSize = 100;
+const logoRadius = 22;
+const logoCenterX = WIDTH / 2;
+const logoTopY = 130;
+const logoX = logoCenterX - logoSize / 2;
+const logoY = logoTopY;
+
+// Rounded rectangle
 ctx.beginPath();
 ctx.moveTo(logoX + logoRadius, logoY);
 ctx.lineTo(logoX + logoSize - logoRadius, logoY);
@@ -41,58 +56,53 @@ ctx.closePath();
 ctx.fillStyle = '#007AFF';
 ctx.fill();
 
-// Chat bubble icon - scaled and centered in logo
-const iconScale = 2.0;
-const iconOffsetX = logoX + (logoSize - 18 * iconScale) / 2 - 2;
-const iconOffsetY = logoY + (logoSize - 18 * iconScale) / 2 - 3;
+// Chat bubble - filled white
+const iconViewBox = 24;
+const iconPadding = 24;
+const iconDrawSize = logoSize - iconPadding;
+const iconScaleFactor = iconDrawSize / iconViewBox;
+const iconXStart = logoX + iconPadding / 2;
+const iconYStart = logoY + iconPadding / 2 - 2;
 
 ctx.save();
-ctx.translate(iconOffsetX, iconOffsetY);
-ctx.scale(iconScale, iconScale);
+ctx.translate(iconXStart, iconYStart);
+ctx.scale(iconScaleFactor, iconScaleFactor);
 
-ctx.strokeStyle = 'white';
-ctx.lineWidth = 2.5;
-ctx.lineCap = 'round';
-ctx.lineJoin = 'round';
-
-// Chat bubble path: M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z
+ctx.fillStyle = 'white';
 ctx.beginPath();
-ctx.moveTo(21, 15);
-ctx.bezierCurveTo(21, 16.1, 20.1, 17, 19, 17);
+ctx.moveTo(5, 3);
+ctx.lineTo(19, 3);
+ctx.bezierCurveTo(20.1046, 3, 21, 3.8954, 21, 5);
+ctx.lineTo(21, 15);
+ctx.bezierCurveTo(21, 16.1046, 20.1046, 17, 19, 17);
 ctx.lineTo(7, 17);
 ctx.lineTo(3, 21);
 ctx.lineTo(3, 5);
-ctx.bezierCurveTo(3, 3.9, 3.9, 3, 5, 3);
-ctx.lineTo(19, 3);
-ctx.bezierCurveTo(19, 3, 21, 3, 21, 5);
-ctx.lineTo(21, 15);
-ctx.stroke();
-
+ctx.bezierCurveTo(3, 3.8954, 3.8954, 3, 5, 3);
+ctx.closePath();
+ctx.fill();
 ctx.restore();
 
-// TextBubbles text - centered
-ctx.font = 'bold 60px -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Roboto, sans-serif';
-ctx.fillStyle = 'white';
+// --- Title: Large, bold, white ---
+ctx.font = 'bold 80px Helvetica, Arial, sans-serif';
+ctx.fillStyle = '#ffffff';
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
-ctx.fillText('TextBubbles', WIDTH / 2, 280);
+ctx.fillText('TextBubbles', WIDTH / 2, 320);
 
-// Tagline - centered
-ctx.font = '28px -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Roboto, sans-serif';
-ctx.fillStyle = '#888888';
-ctx.fillText('iMessage API for Developers', WIDTH / 2, 340);
+// --- Tagline ---
+ctx.font = '32px Helvetica, Arial, sans-serif';
+ctx.fillStyle = '#8e8e93';
+ctx.textAlign = 'center';
+ctx.fillText('iMessage API for Developers', WIDTH / 2, 395);
 
-// Feature pills - centered
-ctx.font = '18px -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Roboto, sans-serif';
-ctx.fillStyle = '#007AFF';
-ctx.fillText('💬 Blue Bubbles   •   📱 SMS Fallback   •   ❤️ Reactions   •   🎉 Effects', WIDTH / 2, 420);
+// --- Domain ---
+ctx.font = '18px Helvetica, Arial, sans-serif';
+ctx.fillStyle = '#3a3a3a';
+ctx.textAlign = 'center';
+ctx.fillText('textbubbles.com', WIDTH / 2, HEIGHT - 42);
 
-// URL at bottom - centered
-ctx.font = '20px -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, Roboto, sans-serif';
-ctx.fillStyle = '#555555';
-ctx.fillText('textbubbles.com', WIDTH / 2, 550);
-
-// Save to file
+// === Save ===
 const buffer = canvas.toBuffer('image/png');
 const outputPath = path.join(__dirname, '../public/og-image.png');
 fs.writeFileSync(outputPath, buffer);

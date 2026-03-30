@@ -15,7 +15,7 @@ function TokenSpan({
 export default function CodeExample() {
   return (
     <section className="py-32 relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Text */}
           <motion.div

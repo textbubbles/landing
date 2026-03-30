@@ -22,10 +22,10 @@ const features = [
       "Schedule messages for the perfect time. Precise delivery with timezone awareness.",
   },
   {
-    icon: "💳",
-    title: "Payment Requests",
+    icon: "📥",
+    title: "Inbound Messages",
     description:
-      "Request Apple Cash directly via iMessage. Seamless payment collection in conversations.",
+      "Receive and process incoming messages in real-time via webhooks. Full conversation threading support.",
   },
   {
     icon: "👥",
@@ -44,7 +44,7 @@ const features = [
 export default function Features() {
   return (
     <section className="py-32 relative" id="features">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

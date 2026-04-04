@@ -1,7 +1,7 @@
 export default function Footer() {
   const links = [
     { label: "Docs", href: "https://docs.textbubbles.com" },
-    { label: "API Reference", href: "https://docs.textbubbles.com/api" },
+    { label: "API Reference", href: "https://docs.textbubbles.com/api-reference" },
     { label: "SDK", href: "https://docs.textbubbles.com/sdk" },
     { label: "GitHub", href: "https://github.com/textbubbles" },
     { label: "Status", href: "https://status.textbubbles.com" },

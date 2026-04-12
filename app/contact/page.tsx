@@ -19,7 +19,7 @@ export default function ContactPage() {
             Contact Sales
           </h1>
           <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-            Tell us about your use case and we&apos;ll get back to you shortly.
+            Get in touch and let our team help you get started.
           </p>
         </div>
         <ContactForm />

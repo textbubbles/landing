@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Contact Sales - TextBubbles",
   description:
-    "Get in touch with the TextBubbles team. Tell us about your use case and we'll help you get started with the iMessage & SMS API.",
+    "Get in touch with the TextBubbles team. Tell us about your use case and we'll help you get started.",
 };
 
 export default function ContactPage() {

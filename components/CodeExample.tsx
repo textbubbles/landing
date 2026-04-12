@@ -22,6 +22,7 @@ export default function CodeExample() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center lg:text-left"
           >
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Ship in
@@ -33,13 +34,13 @@ export default function CodeExample() {
               It&apos;s that simple.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 inline-block lg:block">
               {[
                 "Type-safe SDK with full IntelliSense",
                 "Async/await with Promise-based API",
                 "Message effects like confetti and fireworks",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
+                <div key={item} className="flex items-center gap-3 text-left">
                   <div className="w-5 h-5 rounded-full bg-imessage-blue/10 flex items-center justify-center flex-shrink-0">
                     <svg
                       width="12"

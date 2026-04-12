@@ -78,8 +78,9 @@ export default function ContactForm() {
           >
             {/* FormSubmit.co config */}
             <input type="hidden" name="_subject" value="New Sales Inquiry" />
-            <input type="hidden" name="_captcha" value="true" />
+            <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" style={{ display: "none" }} />
 
             <div>
               <label

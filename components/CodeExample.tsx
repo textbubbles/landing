@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Copy, Check } from "lucide-react";
 
 function TokenSpan({
   type,
@@ -12,7 +14,27 @@ function TokenSpan({
   return <span className={`token-${type}`}>{children}</span>;
 }
 
+const codeString = `import { TextBubblesClient } from "@textbubbles/sdk";
+
+const client = new TextBubblesClient({
+  apiKey: process.env.TEXTBUBBLES_API_KEY
+});
+
+await client.messages.send({
+  to: "+14155551234",
+  content: { text: "Hello from TextBubbles!" },
+  effect: "confetti"
+});`;
+
 export default function CodeExample() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(codeString);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section className="py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -69,15 +91,24 @@ export default function CodeExample() {
           >
             <div className="code-block glow-blue border border-white/[0.06]">
               {/* Tab bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06]">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                  <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                  <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+              <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                  </div>
+                  <span className="ml-3 text-xs text-gray-500 font-mono">
+                    send-message.ts
+                  </span>
                 </div>
-                <span className="ml-3 text-xs text-gray-500 font-mono">
-                  send-message.ts
-                </span>
+                <button
+                  onClick={handleCopy}
+                  className="p-1.5 rounded-md hover:bg-white/10 transition-colors text-gray-400 hover:text-gray-200"
+                  aria-label="Copy code"
+                >
+                  {copied ? <Check size={16} /> : <Copy size={16} />}
+                </button>
               </div>
 
               <pre className="font-mono text-[13px] leading-7">

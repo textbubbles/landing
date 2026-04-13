@@ -51,6 +51,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-imessage-blue/10 text-imessage-blue text-sm font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-imessage-blue animate-pulse" />
@@ -63,12 +64,12 @@ export default function Hero() {
               <span className="gradient-text">for Developers</span>
             </h1>
 
-            <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-10 max-w-lg">
+            <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
               Send blue bubbles, reactions, and rich media via a simple REST
               API. Built for developers who ship.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <a
                 href="https://docs.textbubbles.com"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-imessage-blue text-white font-medium hover:bg-blue-600 transition-all hover:shadow-lg hover:shadow-blue-500/25"

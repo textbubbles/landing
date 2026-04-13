@@ -67,8 +67,9 @@ export default function CodeExample() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            className="w-full min-w-0"
           >
-            <div className="code-block glow-blue border border-white/[0.06]">
+            <div className="code-block glow-blue border border-white/[0.06] w-full max-w-full overflow-hidden">
               {/* Tab bar */}
               <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06]">
                 <div className="flex gap-1.5">

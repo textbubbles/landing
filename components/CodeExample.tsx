@@ -49,7 +49,7 @@ export default function CodeExample() {
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Ship in
               <br />
-              <span className="gradient-text">five lines of code</span>
+              <span className="gradient-text">just a few lines</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
               Install our SDK, add your API key, and start sending iMessages.

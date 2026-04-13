@@ -17,18 +17,6 @@ await client.messages.send({
   effect: "confetti"
 });`;
 
-const codeString = `import { TextBubblesClient } from "@textbubbles/sdk";
-
-const client = new TextBubblesClient({
-  apiKey: process.env.TEXTBUBBLES_API_KEY
-});
-
-await client.messages.send({
-  to: "+14155551234",
-  content: { text: "Hello from TextBubbles!" },
-  effect: "confetti"
-});`;
-
 export default function CodeExample() {
   const [copied, setCopied] = useState(false);
 

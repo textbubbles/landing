@@ -3,16 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Copy, Check } from "lucide-react";
-
-function TokenSpan({
-  type,
-  children,
-}: {
-  type: string;
-  children: React.ReactNode;
-}) {
-  return <span className={`token-${type}`}>{children}</span>;
-}
+import { Highlight, themes } from "prism-react-renderer";
 
 const codeString = `import { TextBubblesClient } from "@textbubbles/sdk";
 
@@ -111,69 +102,19 @@ export default function CodeExample() {
                 </button>
               </div>
 
-              <pre className="font-mono text-[13px] leading-7">
-                <code>
-                  <TokenSpan type="keyword">import</TokenSpan>
-                  <TokenSpan type="plain"> {"{ "}</TokenSpan>
-                  <TokenSpan type="type">TextBubblesClient</TokenSpan>
-                  <TokenSpan type="plain">{" }"}</TokenSpan>
-                  <TokenSpan type="keyword"> from</TokenSpan>
-                  <TokenSpan type="string">
-                    {' "@textbubbles/sdk"'}
-                  </TokenSpan>
-                  <TokenSpan type="punctuation">;</TokenSpan>
-                  {"\n\n"}
-                  <TokenSpan type="keyword">const</TokenSpan>
-                  <TokenSpan type="plain"> client</TokenSpan>
-                  <TokenSpan type="punctuation"> = </TokenSpan>
-                  <TokenSpan type="keyword">new</TokenSpan>
-                  <TokenSpan type="plain"> </TokenSpan>
-                  <TokenSpan type="type">TextBubblesClient</TokenSpan>
-                  <TokenSpan type="punctuation">{"({"}</TokenSpan>
-                  {"\n"}
-                  <TokenSpan type="plain">{"  "}</TokenSpan>
-                  <TokenSpan type="property">apiKey</TokenSpan>
-                  <TokenSpan type="punctuation">: </TokenSpan>
-                  <TokenSpan type="variable">process</TokenSpan>
-                  <TokenSpan type="punctuation">.</TokenSpan>
-                  <TokenSpan type="variable">env</TokenSpan>
-                  <TokenSpan type="punctuation">.</TokenSpan>
-                  <TokenSpan type="variable">TEXTBUBBLES_API_KEY</TokenSpan>
-                  {"\n"}
-                  <TokenSpan type="punctuation">{"});"}</TokenSpan>
-                  {"\n\n"}
-                  <TokenSpan type="keyword">await</TokenSpan>
-                  <TokenSpan type="plain"> client</TokenSpan>
-                  <TokenSpan type="punctuation">.</TokenSpan>
-                  <TokenSpan type="property">messages</TokenSpan>
-                  <TokenSpan type="punctuation">.</TokenSpan>
-                  <TokenSpan type="function">send</TokenSpan>
-                  <TokenSpan type="punctuation">{"({"}</TokenSpan>
-                  {"\n"}
-                  <TokenSpan type="plain">{"  "}</TokenSpan>
-                  <TokenSpan type="property">to</TokenSpan>
-                  <TokenSpan type="punctuation">: </TokenSpan>
-                  <TokenSpan type="string">{'"+14155551234"'}</TokenSpan>
-                  <TokenSpan type="punctuation">,</TokenSpan>
-                  {"\n"}
-                  <TokenSpan type="plain">{"  "}</TokenSpan>
-                  <TokenSpan type="property">content</TokenSpan>
-                  <TokenSpan type="punctuation">{": { "}</TokenSpan>
-                  <TokenSpan type="property">text</TokenSpan>
-                  <TokenSpan type="punctuation">: </TokenSpan>
-                  <TokenSpan type="string">
-                    {'"Hello from TextBubbles! 💬"'}
-                  </TokenSpan>
-                  <TokenSpan type="punctuation">{" },"}</TokenSpan>
-                  {"\n"}
-                  <TokenSpan type="plain">{"  "}</TokenSpan>
-                  <TokenSpan type="property">effect</TokenSpan>
-                  <TokenSpan type="punctuation">: </TokenSpan>
-                  <TokenSpan type="string">{'"confetti"'}</TokenSpan>
-                  {"\n"}
-                  <TokenSpan type="punctuation">{"});"}</TokenSpan>
-                </code>
-              </pre>
+              <Highlight theme={themes.oneDark} code={codeString} language="tsx">
+                {({ tokens, getLineProps, getTokenProps }) => (
+                  <pre className="font-mono text-[13px] leading-7 p-6 overflow-x-auto">
+                    {tokens.map((line, i) => (
+                      <div key={i} {...getLineProps({ line })}>
+                        {line.map((token, key) => (
+                          <span key={key} {...getTokenProps({ token })} />
+                        ))}
+                      </div>
+                    ))}
+                  </pre>
+                )}
+              </Highlight>
             </div>
           </motion.div>
         </div>

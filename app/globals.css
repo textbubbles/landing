@@ -58,18 +58,6 @@ body {
   line-height: 1.7;
 }
 
-/* Syntax highlighting colors */
-.token-keyword { color: #c678dd; }
-.token-string { color: #98c379; }
-.token-comment { color: #5c6370; }
-.token-function { color: #61afef; }
-.token-property { color: #e06c75; }
-.token-number { color: #d19a66; }
-.token-punctuation { color: #abb2bf; }
-.token-type { color: #e5c07b; }
-.token-variable { color: #e06c75; }
-.token-plain { color: #abb2bf; }
-
 /* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%);

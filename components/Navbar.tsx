@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -93,12 +94,12 @@ export default function Navbar() {
               </svg>
             )}
           </button>
-          <a
+          <Link
             href="/contact"
             className="text-sm font-medium px-4 py-2 rounded-full bg-imessage-blue text-white hover:bg-blue-600 transition-colors"
           >
             Get Started
-          </a>
+          </Link>
         </div>
       </div>
     </motion.nav>

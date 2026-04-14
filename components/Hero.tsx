@@ -71,7 +71,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <a
-                href="https://docs.textbubbles.com"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-imessage-blue text-white font-medium hover:bg-blue-600 transition-all hover:shadow-lg hover:shadow-blue-500/25"
               >
                 Get Started

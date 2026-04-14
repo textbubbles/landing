@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const messages = [
@@ -70,8 +71,8 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <a
-                href="https://docs.textbubbles.com"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-imessage-blue text-white font-medium hover:bg-blue-600 transition-all hover:shadow-lg hover:shadow-blue-500/25"
               >
                 Get Started
@@ -85,7 +86,7 @@ export default function Hero() {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
               <a
                 href="https://docs.textbubbles.com"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition-all"

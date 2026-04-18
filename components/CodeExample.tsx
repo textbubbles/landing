@@ -164,7 +164,7 @@ export default function CodeExample() {
                   <TokenSpan type="property">text</TokenSpan>
                   <TokenSpan type="punctuation">: </TokenSpan>
                   <TokenSpan type="string">
-                    {'"Hello from TextBubbles! 💬"'}
+                    {'"Hello from TextBubbles!"'}
                   </TokenSpan>
                   <TokenSpan type="punctuation">{" },"}</TokenSpan>
                   {"\n"}

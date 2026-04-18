@@ -64,12 +64,8 @@ export default function Features() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
-            <motion.div
+            <div
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="group relative p-6 rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] hover:border-imessage-blue/30 dark:hover:border-imessage-blue/30 transition-all duration-300"
             >
               <div className="text-3xl mb-4">{feature.icon}</div>
@@ -79,7 +75,7 @@ export default function Features() {
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                 {feature.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

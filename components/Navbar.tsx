@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+const THEME_STORAGE_KEY = "theme";
+
 export default function Navbar() {
   const [darkMode, setDarkMode] = useState(true);
   const [scrolled, setScrolled] = useState(false);
@@ -14,9 +16,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // The class on <html> is the source of truth: it outlives this component, which
+  // remounts on every page navigation. Adopt it rather than reapplying a default.
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
+    setDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !document.documentElement.classList.contains("dark");
+    document.documentElement.classList.toggle("dark", next);
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, next ? "dark" : "light");
+    } catch {
+      // Storage can be blocked; the class still applies for this page view.
+    }
+    setDarkMode(next);
+  };
 
   return (
     <motion.nav
@@ -63,7 +78,7 @@ export default function Navbar() {
             API
           </a>
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={toggleTheme}
             className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
             aria-label="Toggle theme"
           >
